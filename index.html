@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="d-flex justify-content-between align-items-center">
+         <h1 style="color: #008B8B; flex-wrap: wrap; " class="m-2">MY WEATHER</h1>  
+         <form class="d-flex p-2">
+            <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success " type="submit">Search</button>
+          </form> 
+        </div>
+        <div class="">
+
+        </div>
+    </header>
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link text-white ml-3 font_size" href="#">Today</a>
+            <a class="nav-item nav-link text-white ml-3 font_size" href="#">5-day forecast</a>
+          </div>
+        </div>
+      </nav>
+
+  
+    <script src="./fetch_api.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
