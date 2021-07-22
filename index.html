@@ -6,43 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./node_modules/jquery/dist/jquery.js">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body class="page">
     <header>
         <div class="d-flex justify-content-between align-items-center">
          <h1 style="color: #008B8B; flex-wrap: wrap; " class="m-2">MY WEATHER</h1>  
-         <form class="d-flex p-2">
-            <input class="form-control me-2 " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success " type="submit">Search</button>
+         <form class="d-flex p-2" action="/action_page.php">
+            <input class="form-control me-2 " type="text" placeholder="Search" aria-label="Search" name="search" id="search">
+            <button class="btn btn-outline-success " type="button">Search<i class="fa fa-search"></i></button>
           </form> 
         </div>
         <div class="">
 
         </div>
     </header>
-  
+  <main>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link text-white ml-3 font_size" href="#">Today</a>
-            <a class="nav-item nav-link text-white ml-3 font_size" href="#">5-day forecast</a>
+            <a class="nav-item nav-link text-white ml-3 font_size" href="#weather-main">Today</a>
+            <a class="nav-item nav-link text-white ml-3 font_size" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">5-day forecast</a>
           </div>
         </div>
       </nav>
 
-      <div class="container" id="weather-main" style="background-color:#eceef1; width: auto; height: 300px; justify-content: space-between; display: flex; flex-wrap: wrap; margin-top: 20px;">
+      <div class="container" id="weather-main" style="background-color:#eceef1; width: auto; height: fit-content; justify-content: space-between; display: flex; flex-wrap: wrap; margin-top: 20px;">
         <h3 style="color: #008B8B; text-align: left;  " class="m-2" >Current Weather</h3>
         <h3 style="color: #008B8B; text-align: right; justify-content: right; flex: end; " class="m-2" id="dat1"></h3>
         <div class="container">
           <div class="row align-items-start">
             <div class="col" style="margin-left: 40px;">
-              <img src="" alt=""  >
-              <p class="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"></p>
+              <img id="main" src="" alt="" >
+              <p class="" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  text-align: left; margin-left: 25px;" ></p>
             </div>
             <div class="col" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-             <p id="temp" class="display-4 " style="text-align: center;" ></p>
-             <p id="feel-like" style="text-align: center;"></p>
+             <p id="temp" class="display-4 " style="text-align: left;" ></p>
+             <p id="feel-like" style="text-align: left; margin-left: 15px;"></p>
             </div>
             <div class="col">
              <p id="sunrise"></p>
@@ -56,12 +57,104 @@
         </div>
         
       </div>
+      <div class="container" id="weather-forecast" style="background-color:#eceef1; width: auto; height: fit-content; justify-content: space-between; display: flex; flex-wrap: wrap; margin-top: 20px;">
+        <h3 style="color: #008B8B; text-align: left;  " class="m-2" >Hourly</h3>
+        <div class="container">
+        <div class="row" >
+          <div class="container" style="  justify-content: space-between; display: flex; " id="hour">
+          <div class="col-2"><b>TODAY</b></div>          
+            
+        </div>
+        </div>
+        <div class="row" id="fcast" >
+          <div class="col-2">Forecast</div>
+          
+        </div>
+        <div class="row" id="ftemp" >
+          <div class="col-2">Temp (°C)</div>
+          
+        </div>
+        <div class="row" id="rfeel" >
+          <div class="col-2">RealFeel (°C)</div>
+          
+        </div>
+        <div class="row" id="wind">
+          <div class="col-2">Wind(km/h)</div>
+     
+        </div>
+        
+        </div>
+
+
+      </div>
+
+      <div class="container" id="nearby-locations" style="background-color:#eceef1; width: auto; height: auto; justify-content: space-between; display: flex; flex-wrap: wrap; margin-top: 20px;" >
+        
+        <div class="container" style="display: flex; flex-wrap: wrap; display: inline;  " >
+          <h3 style="color: #008B8B; text-align: left;  " class="m-2" >Nearby Places</h3>
+          <div class="row">
+            <div class="col-md-6"   id="cityname">
+                    
+              
+          </div>
+          <div class="col-md-6"   id="cityname1">
+                    
+              
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-md-6"  id="cityname2" >
+            
+        </div>
+        <div class="col-md-6"   id="cityname3" >
+            
+        </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="page-footer">   
+          <div class="application element">
+                  <h3>Weather App</h3>
+                  <p>2021 Weather App by me</p>
+          </div>
+          <div class="contacts element">
+                  <h5>cris.diaconu10@gmail.com</h5>
+                  <h5>+37369666611</h5>
+          </div>
+          <div class="lists element">
+              <div class="links">
+                  <!-- Links don't actually work -->
+              <ul>
+                  <li><a href="#weather-main">Current Weather</a></li>
+                  <li><a href="#weather-forecast">Hourly</a></li>
+                  <li><a href="#nearby-locations">Nearby Places</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">5-day Forecast</a></li>
+              </ul>
+            
+             </div> 
+              <div class="social-media">
+              <ul>
+                  <li><a href="https://www.facebook.com/">Facebook</a></li>
+                  <li><a href="https://twitter.com/twitter">Twitter</a></li>
+                  <li><a href="https://www.instagram.com/">Instagram</a></li>
+                  <li><a href="https://www.reddit.com/">Reddit</a></li>                   
+              </ul>
+              </div>
+
+          </div>
+
+      </div>
+  </footer>
 
       <style>
         .page{
           
           background-color: #d7dce0;
         }
+        
+       
         /* #main{
           color:#adb2bd; width: auto; height: 300px;
         } */
@@ -70,4 +163,6 @@
     <script src="./fetch_api.js"></script>
     <script src="./script.js"></script>
 </body>
+
+
 </html>
